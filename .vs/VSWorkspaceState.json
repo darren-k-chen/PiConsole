@@ -1,7 +1,12 @@
 {
   "ExpandedNodes": [
     "",
-    "\\PiConsole"
+    "\\home",
+    "\\home\\migrations",
+    "\\PiConsole",
+    "\\templates",
+    "\\templates\\registration"
   ],
+  "SelectedNode": "\\templates\\registration\\password_reset_form.html",
   "PreviewInSolutionExplorer": false
 }

@@ -25,7 +25,7 @@ SECRET_KEY = 'nfp##h=q0f474vtdwi1=n^z90dw$35^*yo&6dq+rc!4p@7=-hs'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["192.168.43.158"]
+ALLOWED_HOSTS = ['192.168.43.158']
 
 
 # Application definition
@@ -103,7 +103,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'zh-tw'
 
 TIME_ZONE = 'Asia/Taipei'
 
