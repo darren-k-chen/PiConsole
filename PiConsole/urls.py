@@ -20,7 +20,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # Add PiConsole Site Front Page
     path('/', include('home.urls')),
+
+    #path('accounts/', include('django.contrib.auth.urls')),
+]
+
+urlpatterns += [
     # Add PiConsole Site Authentication URLs (For Login, Logout, Pwd. Management)
     path('accounts/', include('django.contrib.auth.urls')),
-    path('accounts/logout/', 'templates\registration\logged_out.html')
 ]
