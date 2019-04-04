@@ -19,7 +19,7 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     # Add PiConsole Site Front Page
-    path('', include('home.urls')),
+    path('/', include('home.urls')),
     # Add PiConsole Site Authentication URLs (For Login, Logout, Pwd. Management)
     path('accounts/', include('django.contrib.auth.urls')),
 ]
