@@ -30,7 +30,7 @@ class CarRun:
         pwm_EN_B = GPIO.PWM(EN_B, 2000)
         pwm_EN_B.start(0)
 
-    #@staticmethod
+    @staticmethod
     def brake(dt = 1):
         for i in range(4):
             GPIO.output(IN[i], 0)
@@ -41,10 +41,10 @@ class CarRun:
         time.sleep(dt)
 
     # Go Advance
-    #@staticmethod
     def advance(self, request, dt = 1, b_k = 0):
         for i in range(4):
-            t = IN[i]%2 == 0
+            #t = IN[i]%2 == 0
+            t = 1
             GPIO.output(IN[i], t)
 
         pwm_EN_A.ChangeDutyCycle(80)
@@ -52,13 +52,13 @@ class CarRun:
 
         time.sleep(dt)
         if b_k == 0:
-            brake()
+            self.brake()
 
     # Go Back
-    #@staticmethod
     def back(self, request, dt = 1, b_k = 0):
         for i in range(4):
-            t = IN[i]%2 == 1
+            #t = IN[i]%2 == 1
+            t = 0
             GPIO.output(IN[i], t)
 
         pwm_EN_A.ChangeDutyCycle(80)
@@ -66,7 +66,7 @@ class CarRun:
 
         time.sleep(dt)
         if b_k == 0:
-            brake()
+            self.brake()
 
     # Turn Left
     #@staticmethod
@@ -80,7 +80,7 @@ class CarRun:
 
         time.sleep(dt)
         if b_k == 0:
-            brake()
+            self.brake()
 
     # Turn Right
     #@staticmethod
@@ -94,7 +94,7 @@ class CarRun:
 
         time.sleep(dt)
         if b_k == 0:
-            brake()
+            self.brake()
 
     # Turn Left in Situ
     #@staticmethod
@@ -108,7 +108,7 @@ class CarRun:
 
         time.sleep(dt)
         if b_k == 0:
-            brake()
+            self.brake()
 
     # Turn Right in Situ
     #@staticmethod
@@ -122,12 +122,12 @@ class CarRun:
 
         time.sleep(dt)
         if b_k == 0:
-            brake()
+            self.brake()
 
     # Stop to Run the Car
     #@staticmethod
     def stop_run(self, request):
-        brake()
+        self.brake()
 
     # End Control
     #@staticmethod
