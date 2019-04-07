@@ -3,8 +3,8 @@ from . import views
 import car_control.run.CarRun as car_run
 
 urlpatterns = [
-    path('', views.car_console, name = 'index'),
-    path('car_run/', views.car_console, name = "car_console"),
+    path('', views.index, name = 'index'),
+    path('car_run/', views.car_console, name = "car_control_panel"),
     path('car_run/css_core/', views.car_console(file_type = 'css'), name = "car_console"),
     path('car_run/advance/', car_run.advance, name = 'go_advance'),
     path('car_run/back/', car_run.back, name = 'go_back'),
