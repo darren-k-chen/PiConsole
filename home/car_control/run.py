@@ -13,8 +13,8 @@ class CarRun:
         GPIO.setmode(GPIO.BCM)
         GPIO.setwarnings(False)
 
-    @staticmethod
-    def motor_init():
+    #@staticmethod
+    def motor_init(self):
         global pwm_EN_A
         global pwm_EN_B
         global dt # Delaytime
@@ -30,8 +30,8 @@ class CarRun:
         pwm_EN_B = GPIO.PWM(EN_B, 2000)
         pwm_EN_B.start(0)
 
-    @staticmethod
-    def brake(dt = 1):
+    #@staticmethod
+    def brake(self, dt = 1):
         for i in range(4):
             GPIO.output(IN[i], 0)
 
@@ -41,8 +41,8 @@ class CarRun:
         time.sleep(dt)
 
     # Go Advance
-    @staticmethod
-    def advance(dt = 1, b_k = 0):
+    #@staticmethod
+    def advance(self, dt = 1, b_k = 0):
         for i in range(4):
             t = IN[i]%2 == 0
             GPIO.output(IN[i], t)
@@ -55,8 +55,8 @@ class CarRun:
             brake()
 
     # Go Back
-    @staticmethod
-    def back(dt = 1, b_k = 0):
+    #@staticmethod
+    def back(self, dt = 1, b_k = 0):
         for i in range(4):
             t = IN[i]%2 == 1
             GPIO.output(IN[i], t)
@@ -69,8 +69,8 @@ class CarRun:
             brake()
 
     # Turn Left
-    @staticmethod
-    def left(dt = 2, b_k = 0):
+    #@staticmethod
+    def left(self, dt = 2, b_k = 0):
         for i in range(4):
             t = IN[i] == 2
             GPIO.output(IN[i], t)
@@ -83,8 +83,8 @@ class CarRun:
             brake()
 
     # Turn Right
-    @staticmethod
-    def right(dt = 2, b_k = 0):
+    #@staticmethod
+    def right(self, dt = 2, b_k = 0):
         for i in range(4):
             t = IN[i] == 0
             GPIO.output(IN[i], t)
@@ -97,8 +97,8 @@ class CarRun:
             brake()
 
     # Turn Left in Situ
-    @staticmethod
-    def situ_left(dt = 3, b_k = 0):
+    #@staticmethod
+    def situ_left(self, dt = 3, b_k = 0):
         for i in range(4):
             t = IN[i] in [1, 2]
             GPIO.output(IN[i], t)
@@ -111,8 +111,8 @@ class CarRun:
             brake()
 
     # Turn Right in Situ
-    @staticmethod
-    def situ_right(dt = 3, b_k = 0):
+    #@staticmethod
+    def situ_right(self, dt = 3, b_k = 0):
         for i in range(4):
             t = IN[i] in [0, 3]
             GPIO.output(IN[i], t)
@@ -125,13 +125,13 @@ class CarRun:
             brake()
 
     # Stop to Run the Car
-    @staticmethod
-    def stop_run():
+    #@staticmethod
+    def stop_run(self):
         brake()
 
     # End Control
-    @staticmethod
-    def all_stop():
+    #@staticmethod
+    def all_stop(self):
         pwm_EN_A.stop()
         pwm_EN_A.stop()
 
