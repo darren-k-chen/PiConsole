@@ -5,8 +5,8 @@ from django.http import HttpResponse
 def index(request):
     return redirect(car_control_panel)
 
-def car_console(request, file_type = 'html'):
-    if file_type == 'html':
-        return render(request, 'templates/console.html')
-    else:
-        return render(request, 'templates/css/core.css')
+def car_console(request):
+    return render(request, 'templates/console.html')
+
+def car_console_css(request):
+    return render(request, 'templates/core.css')

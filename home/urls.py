@@ -1,11 +1,15 @@
 from django.urls import path
 from . import views
-import car_control.run.CarRun as car_run
+from home.car_control import run
+
+car_run = run.CarRun()
+
+car_run.motor_init()
 
 urlpatterns = [
     path('', views.index, name = 'index'),
     path('car_run/', views.car_console, name = "car_control_panel"),
-    path('car_run/css_core/', views.car_console(file_type = 'css'), name = "car_console"),
+    path('car_run/css_core/', views.car_console_css, name = "car_control_panel_css"),
     path('car_run/advance/', car_run.advance, name = 'go_advance'),
     path('car_run/back/', car_run.back, name = 'go_back'),
     path('car_run/left/', car_run.left, name = 'turn_left'),
@@ -15,9 +19,7 @@ urlpatterns = [
     path('car_run/stop_run/', car_run.stop_run, name = 'make_car_to_stop'),
 ]
 
-if __name__ == __main__:
-    car_run.motor_init()
-    try:
-        pass
-    except:
-        car_run.stop()
+try:
+    pass
+except:
+    car_run.stop()
