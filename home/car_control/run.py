@@ -3,9 +3,9 @@ import time
 
 class CarRun:
     def __init__(self):
-        IN = [20, 21, 19, 26]
-        EN_A = 16
-        EN_B = 13
+        global IN = [20, 21, 19, 26]
+        global EN_A = 16
+        global EN_B = 13
 
         GPIO.setmode(GPIO.BCM)
         GPIO.setwarnings(False)
