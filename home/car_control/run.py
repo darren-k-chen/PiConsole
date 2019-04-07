@@ -31,7 +31,7 @@ class CarRun:
         pwm_EN_B.start(0)
 
     #@staticmethod
-    def brake(self, dt = 1):
+    def brake(dt = 1):
         for i in range(4):
             GPIO.output(IN[i], 0)
 
@@ -42,7 +42,7 @@ class CarRun:
 
     # Go Advance
     #@staticmethod
-    def advance(self, dt = 1, b_k = 0):
+    def advance(self, request, dt = 1, b_k = 0):
         for i in range(4):
             t = IN[i]%2 == 0
             GPIO.output(IN[i], t)
@@ -56,7 +56,7 @@ class CarRun:
 
     # Go Back
     #@staticmethod
-    def back(self, dt = 1, b_k = 0):
+    def back(self, request, dt = 1, b_k = 0):
         for i in range(4):
             t = IN[i]%2 == 1
             GPIO.output(IN[i], t)
@@ -70,7 +70,7 @@ class CarRun:
 
     # Turn Left
     #@staticmethod
-    def left(self, dt = 2, b_k = 0):
+    def left(self, request, dt = 2, b_k = 0):
         for i in range(4):
             t = IN[i] == 2
             GPIO.output(IN[i], t)
@@ -84,7 +84,7 @@ class CarRun:
 
     # Turn Right
     #@staticmethod
-    def right(self, dt = 2, b_k = 0):
+    def right(self, request, dt = 2, b_k = 0):
         for i in range(4):
             t = IN[i] == 0
             GPIO.output(IN[i], t)
@@ -98,7 +98,7 @@ class CarRun:
 
     # Turn Left in Situ
     #@staticmethod
-    def situ_left(self, dt = 3, b_k = 0):
+    def situ_left(self, request, dt = 3, b_k = 0):
         for i in range(4):
             t = IN[i] in [1, 2]
             GPIO.output(IN[i], t)
@@ -112,7 +112,7 @@ class CarRun:
 
     # Turn Right in Situ
     #@staticmethod
-    def situ_right(self, dt = 3, b_k = 0):
+    def situ_right(self, request, dt = 3, b_k = 0):
         for i in range(4):
             t = IN[i] in [0, 3]
             GPIO.output(IN[i], t)
@@ -126,12 +126,12 @@ class CarRun:
 
     # Stop to Run the Car
     #@staticmethod
-    def stop_run(self):
+    def stop_run(self, request):
         brake()
 
     # End Control
     #@staticmethod
-    def all_stop(self):
+    def all_stop(self, request):
         pwm_EN_A.stop()
         pwm_EN_A.stop()
 
