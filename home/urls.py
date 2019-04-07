@@ -17,6 +17,7 @@ urlpatterns = [
     path('car_run/situ_left/', car_run.situ_left, name = 'turn_left_in_situ'),
     path('car_run/situ_right/', car_run.situ_right, name = 'turn_right_in_situ'),
     path('car_run/stop_run/', car_run.stop_run, name = 'make_car_to_stop'),
+    path('car_run/end_control/', car_run.all_stop, name = 'end_control'),
 ]
 
 try:

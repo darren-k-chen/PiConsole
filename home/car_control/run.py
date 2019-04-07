@@ -10,6 +10,7 @@ class CarRun:
         GPIO.setmode(GPIO.BCM)
         GPIO.setwarnings(False)
 
+    @staticmethod
     def motor_init():
         global pwm_EN_A
         global pwm_EN_B
@@ -26,6 +27,7 @@ class CarRun:
         pwm_EN_B = GPIO.PWM(EN_B, 2000)
         pwm_EN_B.start(0)
 
+    @staticmethod
     def brake(dt = 1):
         for i in range(4):
             GPIO.output(IN[i], 0)
@@ -115,6 +117,10 @@ class CarRun:
 
     # Stop to Run the Car
     def stop_run():
+        brake()
+
+    # End Control
+    def all_stop():
         pwm_EN_A.stop()
         pwm_EN_A.stop()
 
