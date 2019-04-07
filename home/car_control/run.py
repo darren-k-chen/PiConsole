@@ -41,10 +41,10 @@ class CarRun:
         time.sleep(dt)
 
     # Go Advance
-    def advance(self, request, dt = 1, b_k = 0):
+    def advance(self, request, dt = 10, b_k = 0):
         for i in range(4):
-            #t = IN[i]%2 == 0
-            t = 1
+            t = IN[i]%2 == 0
+            #t = 1
             GPIO.output(IN[i], t)
 
         pwm_EN_A.ChangeDutyCycle(80)
@@ -55,10 +55,10 @@ class CarRun:
             self.brake()
 
     # Go Back
-    def back(self, request, dt = 1, b_k = 0):
+    def back(self, request, dt = 10, b_k = 0):
         for i in range(4):
-            #t = IN[i]%2 == 1
-            t = 0
+            t = IN[i]%2 == 1
+            #t = 0
             GPIO.output(IN[i], t)
 
         pwm_EN_A.ChangeDutyCycle(80)
