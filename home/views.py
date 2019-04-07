@@ -3,7 +3,7 @@ from django.http import HttpResponse
 
 # Create your views here.
 def index(request):
-    return redirect(car_control_panel)
+    return redirect(car_console)
 
 def car_console(request):
     return render(request, 'templates/console.html')
