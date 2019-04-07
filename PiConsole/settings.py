@@ -70,12 +70,12 @@ TEMPLATES = [
         },
     },
 ]
-"""
+
 TEMPLATE_DIRS = (
-            os.path.join(BASE_DIR,  'templates'),
+#           os.path.join(BASE_DIR,  'templates'),
             os.path.join(BASE_DIR,  'home/templates'),
             )
-"""
+
 WSGI_APPLICATION = 'PiConsole.wsgi.application'
 
 
