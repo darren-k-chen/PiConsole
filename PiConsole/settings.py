@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['192.168.43.158']
 # Application definition
 
 INSTALLED_APPS = [
+    'home.apps.HomeConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -54,7 +55,10 @@ ROOT_URLCONF = 'PiConsole.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['./templates',],
+        'DIRS': [
+            './templates',
+        #   './home/templates',
+            ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -66,7 +70,12 @@ TEMPLATES = [
         },
     },
 ]
-
+"""
+TEMPLATE_DIRS = (
+            os.path.join(BASE_DIR,  'templates'),
+            os.path.join(BASE_DIR,  'home/templates'),
+            )
+"""
 WSGI_APPLICATION = 'PiConsole.wsgi.application'
 
 
