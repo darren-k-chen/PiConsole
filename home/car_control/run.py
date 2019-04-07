@@ -41,6 +41,7 @@ class CarRun:
         time.sleep(dt)
 
     # Go Advance
+    @staticmethod
     def advance(dt = 1, b_k = 0):
         for i in range(4):
             t = IN[i]%2 == 0
@@ -54,6 +55,7 @@ class CarRun:
             brake()
 
     # Go Back
+    @staticmethod
     def back(dt = 1, b_k = 0):
         for i in range(4):
             t = IN[i]%2 == 1
@@ -67,6 +69,7 @@ class CarRun:
             brake()
 
     # Turn Left
+    @staticmethod
     def left(dt = 2, b_k = 0):
         for i in range(4):
             t = IN[i] == 2
@@ -80,6 +83,7 @@ class CarRun:
             brake()
 
     # Turn Right
+    @staticmethod
     def right(dt = 2, b_k = 0):
         for i in range(4):
             t = IN[i] == 0
@@ -93,6 +97,7 @@ class CarRun:
             brake()
 
     # Turn Left in Situ
+    @staticmethod
     def situ_left(dt = 3, b_k = 0):
         for i in range(4):
             t = IN[i] in [1, 2]
@@ -106,6 +111,7 @@ class CarRun:
             brake()
 
     # Turn Right in Situ
+    @staticmethod
     def situ_right(dt = 3, b_k = 0):
         for i in range(4):
             t = IN[i] in [0, 3]
@@ -119,10 +125,12 @@ class CarRun:
             brake()
 
     # Stop to Run the Car
+    @staticmethod
     def stop_run():
         brake()
 
     # End Control
+    @staticmethod
     def all_stop():
         pwm_EN_A.stop()
         pwm_EN_A.stop()
