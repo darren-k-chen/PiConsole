@@ -6,7 +6,7 @@ def index(request):
     return redirect(car_console)
 
 def car_console(request):
-    return render(request, 'home/templates/console.html')
+    return render(request, 'templates/console.html')
 
 def car_console_css(request):
-    return render(request, 'home/templates/core.css')
+    return render(request, 'templates/core.css')
