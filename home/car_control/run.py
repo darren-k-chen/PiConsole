@@ -1,26 +1,29 @@
 import RPi.GPIO as GPIO
 import time
+from django.http import HttpResponse
 
 class CarRun:
-    def __init__(self):
+    def __init__(self, dt):
+        self.dt = 3 # Delaytime
         global IN
         IN = [20, 21, 19, 26]
         global EN_A
         EN_A = 16
         global EN_B
         EN_B = 13
+        #global dt = 3
 
     def __new__(self):
         GPIO.setmode(GPIO.BCM)
         GPIO.setwarnings(False)
 
     def __call__(self):
+        return HttpResponse('')
         pass
 
     def motor_init(self):
         global pwm_EN_A
         global pwm_EN_B
-        global dt # Delaytime
 
         for i in range(4):
             GPIO.setup(IN[i], GPIO.OUT, initial = 0)
@@ -44,7 +47,8 @@ class CarRun:
         time.sleep(dt)
 
     # Go Advance
-    def advance(self, request, dt = 10, b_k = 0):
+    def advance(self, request, dt, b_k = 0):
+        dt = self.dt
         for i in range(4):
             #t = IN[i]%2 == 0
             t = 1
@@ -53,12 +57,12 @@ class CarRun:
         pwm_EN_A.ChangeDutyCycle(80)
         pwm_EN_B.ChangeDutyCycle(80)
 
-        time.sleep(dt)
+        time.sleep(self.dt)
         if b_k == 0:
             self.brake()
 
     # Go Back
-    def back(self, request, dt = 10, b_k = 0):
+    def back(self, request, dt, b_k = 0):
         for i in range(4):
             #t = IN[i]%2 == 1
             t = 0
@@ -67,12 +71,12 @@ class CarRun:
         pwm_EN_A.ChangeDutyCycle(80)
         pwm_EN_B.ChangeDutyCycle(80)
 
-        time.sleep(dt)
+        time.sleep(self.dt)
         if b_k == 0:
             self.brake()
 
     # Turn Left
-    def left(self, request, dt = 2, b_k = 0):
+    def left(self, request, dt, b_k = 0):
         for i in range(4):
             t = IN[i] == 2
             GPIO.output(IN[i], t)
@@ -80,7 +84,7 @@ class CarRun:
         pwm_EN_A.ChangeDutyCycle(80)
         pwm_EN_B.ChangeDutyCycle(80)
 
-        time.sleep(dt)
+        time.sleep(self.dt)
         if b_k == 0:
             self.brake()
 
@@ -93,7 +97,7 @@ class CarRun:
         pwm_EN_A.ChangeDutyCycle(80)
         pwm_EN_B.ChangeDutyCycle(80)
 
-        time.sleep(dt)
+        time.sleep(self.dt)
         if b_k == 0:
             self.brake()
 
@@ -106,7 +110,7 @@ class CarRun:
         pwm_EN_A.ChangeDutyCycle(80)
         pwm_EN_B.ChangeDutyCycle(80)
 
-        time.sleep(dt)
+        time.sleep(self.dt)
         if b_k == 0:
             self.brake()
 
@@ -119,7 +123,7 @@ class CarRun:
         pwm_EN_A.ChangeDutyCycle(80)
         pwm_EN_B.ChangeDutyCycle(80)
 
-        time.sleep(dt)
+        time.sleep(self.dt)
         if b_k == 0:
             self.brake()
 
