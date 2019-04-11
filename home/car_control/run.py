@@ -1,9 +1,10 @@
 import RPi.GPIO as GPIO
 import time
 from django.http import HttpResponse
+from django.shortcuts import redirect
 
 class CarRun:
-    def __init__(self, dt = 3):
+    def __init__(self, dt = 1):
         self.dt = dt # Delaytime
         global IN
         IN = [20, 21, 19, 26]
@@ -13,12 +14,13 @@ class CarRun:
         EN_B = 13
         #global dt = 3
 
-    #def __new__(self):
+    #def __new__(self, dt = 1):
         GPIO.setmode(GPIO.BCM)
         GPIO.setwarnings(False)
 
     def __call__(self):
-        return HttpResponse(' ')
+        return redirect("javascript:window.close();")
+        #return HttpResponse(' ')
 
     def motor_init(self):
         global pwm_EN_A
