@@ -47,7 +47,7 @@ class CarRun:
         time.sleep(dt)
 
     # Go Advance
-    def advance(self, request, dt, b_k = 0):
+    def advance(self, request, b_k = 0):
         dt = self.dt
         for i in range(4):
             #t = IN[i]%2 == 0
@@ -62,7 +62,7 @@ class CarRun:
             self.brake()
 
     # Go Back
-    def back(self, request, dt, b_k = 0):
+    def back(self, request, b_k = 0):
         for i in range(4):
             #t = IN[i]%2 == 1
             t = 0
@@ -76,7 +76,7 @@ class CarRun:
             self.brake()
 
     # Turn Left
-    def left(self, request, dt, b_k = 0):
+    def left(self, request, b_k = 0):
         for i in range(4):
             t = IN[i] == 2
             GPIO.output(IN[i], t)
@@ -89,7 +89,7 @@ class CarRun:
             self.brake()
 
     # Turn Right
-    def right(self, request, dt = 2, b_k = 0):
+    def right(self, request, b_k = 0):
         for i in range(4):
             t = IN[i] == 0
             GPIO.output(IN[i], t)
@@ -102,7 +102,7 @@ class CarRun:
             self.brake()
 
     # Turn Left in Situd
-    def situ_left(self, request, dt = 3, b_k = 0):
+    def situ_left(self, request, b_k = 0):
         for i in range(4):
             t = IN[i] in [1, 2]
             GPIO.output(IN[i], t)
@@ -115,7 +115,7 @@ class CarRun:
             self.brake()
 
     # Turn Right in Situ
-    def situ_right(self, request, dt = 3, b_k = 0):
+    def situ_right(self, request, b_k = 0):
         for i in range(4):
             t = IN[i] in [0, 3]
             GPIO.output(IN[i], t)
