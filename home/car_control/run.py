@@ -13,7 +13,7 @@ class CarRun:
         EN_B = 13
         #global dt = 3
 
-    def __new__(self):
+    #def __new__(self):
         GPIO.setmode(GPIO.BCM)
         GPIO.setwarnings(False)
 
