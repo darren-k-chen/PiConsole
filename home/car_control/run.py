@@ -18,8 +18,7 @@ class CarRun:
         GPIO.setwarnings(False)
 
     def __call__(self):
-        return HttpResponse('')
-        pass
+        return HttpResponse(self.request)
 
     def motor_init(self):
         global pwm_EN_A
@@ -60,6 +59,7 @@ class CarRun:
         time.sleep(self.dt)
         if b_k == 0:
             self.brake()
+        self.request = request
 
     # Go Back
     def back(self, request, b_k = 0):
@@ -74,6 +74,7 @@ class CarRun:
         time.sleep(self.dt)
         if b_k == 0:
             self.brake()
+        self.request = request
 
     # Turn Left
     def left(self, request, b_k = 0):
@@ -87,6 +88,7 @@ class CarRun:
         time.sleep(self.dt)
         if b_k == 0:
             self.brake()
+        self.request = request
 
     # Turn Right
     def right(self, request, b_k = 0):
@@ -100,6 +102,7 @@ class CarRun:
         time.sleep(self.dt)
         if b_k == 0:
             self.brake()
+        self.request = request
 
     # Turn Left in Situd
     def situ_left(self, request, b_k = 0):
@@ -113,6 +116,7 @@ class CarRun:
         time.sleep(self.dt)
         if b_k == 0:
             self.brake()
+        self.request = request
 
     # Turn Right in Situ
     def situ_right(self, request, b_k = 0):
@@ -126,13 +130,16 @@ class CarRun:
         time.sleep(self.dt)
         if b_k == 0:
             self.brake()
+        self.request = request
 
     # Stop to Run the Car
     def stop_run(self, request):
         self.brake()
+        self.request = request
 
     # End Control
     def all_stop(self, request):
+        self.request = request
         pwm_EN_A.stop()
         pwm_EN_A.stop()
 
