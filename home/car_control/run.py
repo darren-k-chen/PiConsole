@@ -10,10 +10,13 @@ class CarRun:
         global EN_B
         EN_B = 13
 
+    def __new__(self):
         GPIO.setmode(GPIO.BCM)
         GPIO.setwarnings(False)
 
-    #@staticmethod
+    def __call__(self):
+        pass
+
     def motor_init(self):
         global pwm_EN_A
         global pwm_EN_B
