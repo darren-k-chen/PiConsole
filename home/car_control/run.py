@@ -3,8 +3,8 @@ import time
 from django.http import HttpResponse
 
 class CarRun:
-    def __init__(self, dt):
-        self.dt = 3 # Delaytime
+    def __init__(self, dt = 3):
+        self.dt = dt # Delaytime
         global IN
         IN = [20, 21, 19, 26]
         global EN_A
