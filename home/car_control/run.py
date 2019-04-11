@@ -49,8 +49,8 @@ class CarRun:
     def advance(self, request, b_k = 0):
         dt = self.dt
         for i in range(4):
-            #t = IN[i]%2 == 0
-            t = 1
+            t = i%2 == 0
+            #t = 1
             GPIO.output(IN[i], t)
 
         pwm_EN_A.ChangeDutyCycle(80)
@@ -64,7 +64,7 @@ class CarRun:
     # Go Back
     def back(self, request, b_k = 0):
         for i in range(4):
-            #t = IN[i]%2 == 1
+            t = i%2 == 1
             t = 0
             GPIO.output(IN[i], t)
 
@@ -79,7 +79,7 @@ class CarRun:
     # Turn Left
     def left(self, request, b_k = 0):
         for i in range(4):
-            t = IN[i] == 2
+            t = i == 2
             GPIO.output(IN[i], t)
 
         pwm_EN_A.ChangeDutyCycle(80)
@@ -93,7 +93,7 @@ class CarRun:
     # Turn Right
     def right(self, request, b_k = 0):
         for i in range(4):
-            t = IN[i] == 0
+            t = i == 0
             GPIO.output(IN[i], t)
 
         pwm_EN_A.ChangeDutyCycle(80)
@@ -107,7 +107,7 @@ class CarRun:
     # Turn Left in Situd
     def situ_left(self, request, b_k = 0):
         for i in range(4):
-            t = IN[i] in [1, 2]
+            t = i in [1, 2]
             GPIO.output(IN[i], t)
 
         pwm_EN_A.ChangeDutyCycle(80)
@@ -121,7 +121,7 @@ class CarRun:
     # Turn Right in Situ
     def situ_right(self, request, b_k = 0):
         for i in range(4):
-            t = IN[i] in [0, 3]
+            t = i in [0, 3]
             GPIO.output(IN[i], t)
 
         pwm_EN_A.ChangeDutyCycle(80)
