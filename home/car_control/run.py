@@ -18,7 +18,7 @@ class CarRun:
         GPIO.setwarnings(False)
 
     def __call__(self):
-        return HttpResponse(self.request)
+        return HttpResponse(' ')
 
     def motor_init(self):
         global pwm_EN_A
