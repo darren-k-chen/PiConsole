@@ -79,7 +79,7 @@ class CarRun:
     def back(self, request, b_k = 0):
         for i in range(4):
             t = i%2 == 1
-            t = 0
+            # t = 0
             GPIO.output(IN[i], t)
 
         pwm_EN_A.ChangeDutyCycle(80)
