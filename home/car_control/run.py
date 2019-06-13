@@ -25,9 +25,9 @@ class CarRun:
         GPIO.setmode(GPIO.BCM)
         GPIO.setwarnings(False)
 
-    def __call__(self):
-        return redirect("javascript:window.close();")
-        #return HttpResponse(' ')
+    # def __call__(self):
+    #     return redirect("javascript:window.close();")
+    #     #return HttpResponse(' ')
 
     def motor_init(self):
         global pwm_EN_A
@@ -72,7 +72,7 @@ class CarRun:
         time.sleep(self.dt)
         if b_k == 0:
             self.brake()
-        return redirect("javascript:window.close();")
+        return HttpResponse("Go Advance")
         #self.request = request
 
     # Go Back
@@ -88,7 +88,7 @@ class CarRun:
         time.sleep(self.dt)
         if b_k == 0:
             self.brake()
-        return redirect("javascript:window.close();")
+        return HttpResponse("Go Back")
         #self.request = request
 
     # Turn Left
@@ -103,7 +103,7 @@ class CarRun:
         time.sleep(self.dt)
         if b_k == 0:
             self.brake()
-        return redirect("javascript:window.close();")
+        return HttpResponse("Turn Left")
         #self.request = request
 
     # Turn Right
@@ -118,10 +118,10 @@ class CarRun:
         time.sleep(self.dt)
         if b_k == 0:
             self.brake()
-        return redirect("javascript:window.close();")
+        return HttpResponse("Turn Right")
         #self.request = request
 
-    # Turn Left in Situd
+    # Turn Left in Situ
     def situ_left(self, request, b_k = 0):
         for i in range(4):
             t = i in [1, 2]
@@ -133,7 +133,7 @@ class CarRun:
         time.sleep(self.dt)
         if b_k == 0:
             self.brake()
-        return redirect("javascript:window.close();")
+        return HttpResponse("Turn Left in Situ")
         #self.request = request
 
     # Turn Right in Situ
@@ -148,30 +148,30 @@ class CarRun:
         time.sleep(self.dt)
         if b_k == 0:
             self.brake()
-        return redirect("javascript:window.close();")
+        return HttpResponse("Turn Right in Situ")
         #self.request = request
 
     # Infrared Avoid
-    def infrared_avoid(self, request):
-        i = None
-        while i == None:
-            LeftSensorValue  = GPIO.input(AvoidSensorLeft)
-            RightSensorValue = GPIO.input(AvoidSensorRight)
-
-            if LeftSensorValue == True and RightSensorValue == True:
-                run()
-            elif LeftSensorValue == False and RightSensorValue == True:
-                spin_right()
-            time.sleep(0.002)
-            elif LeftSensorValue == True and RightSensorValue == False:
-                spin_left()
-            time.sleep(0.002)
-        return redirect("javascript:window.close();")
+    # def infrared_avoid(self, request):
+    #     i = None
+    #     while i == None:
+    #         LeftSensorValue  = GPIO.input(AvoidSensorLeft)
+    #         RightSensorValue = GPIO.input(AvoidSensorRight)
+    #
+    #         if LeftSensorValue == True and RightSensorValue == True:
+    #             run()
+    #         elif LeftSensorValue == False and RightSensorValue == True:
+    #             spin_right()
+    #         time.sleep(0.002)
+    #         elif LeftSensorValue == True and RightSensorValue == False:
+    #             spin_left()
+    #         time.sleep(0.002)
+    #     return HttpResponse("Infrared Avoid")
 
     # Stop to Run the Car
     def stop_run(self, request):
         self.brake()
-        return redirect("javascript:window.close();")
+        return HttpResponse("Stop to Run the Car")
         #self.request = request
 
     # End Control
@@ -181,4 +181,4 @@ class CarRun:
         pwm_EN_A.stop()
 
         GPIO.cleanup()
-        return redirect("javascript:window.close();")
+        return HttpResponse("End Control")
