@@ -12,6 +12,13 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 
+"""
+ * |==================================================|
+ * |======This code created by K.J. Chen(陳冠儒)======|
+ * |=Copyright © 2019 K.J. Chen | All Rights Reserved=|
+ * |==================================================|
+"""
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 

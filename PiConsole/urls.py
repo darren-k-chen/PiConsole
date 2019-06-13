@@ -16,6 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+"""
+ * |==================================================|
+ * |======This code created by K.J. Chen(陳冠儒)======|
+ * |=Copyright © 2019 K.J. Chen | All Rights Reserved=|
+ * |==================================================|
+"""
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     # Add PiConsole Site Front Page

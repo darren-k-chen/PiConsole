@@ -3,6 +3,12 @@
 import os
 import sys
 
+"""
+ * |==================================================|
+ * |======This code created by K.J. Chen(陳冠儒)======|
+ * |=Copyright © 2019 K.J. Chen | All Rights Reserved=|
+ * |==================================================|
+"""
 
 def main():
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'PiConsole.settings')
