@@ -1,0 +1,21 @@
+<html lang="zh-tw">
+<head>
+    <title>智慧小車控制面板</title>
+    <meta name="K.J. Chen" content="ksite.cf">
+
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css_core">
+</head>
+<body>
+<center>
+    <h1>智慧小車控制面板</h1>
+    <h3>控制面板由陳冠儒開發設計</h3>
+
+    <form action="/search-post" method="post">
+        {% csrf_token %}
+        <input type="text" name="q">
+        <input type="submit" value="Submit">
+    </form>
+
+    <p>{{ rlt }}</p>
+</center>
