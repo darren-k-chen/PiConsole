@@ -11,12 +11,12 @@ from gtts import gTTS
 import os
 
 class Chat:
-    def __init__():
+    def __init__(self):
         cb = ChatBot('mybot')
         trainer = ChatterBotCorpusTrainer(cb)
         trainer.train("chatterbot.corpus.english")
 
-    def chat(request):
+    def chat(self, request):
         ctx ={}
         if request.POST:
             rep = str(cb.get_response(request.POST['q']))
