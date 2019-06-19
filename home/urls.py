@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
 from home.car_control import run
+from home.chat_bot import chat_en
 
 """
  * |==================================================|
@@ -10,6 +11,7 @@ from home.car_control import run
 """
 
 car_run = run.CarRun()
+chat_bot_en = chat_en.Chat()
 
 car_run.motor_init()
 
@@ -25,6 +27,7 @@ urlpatterns = [
     path('car_run/situ_right/', car_run.situ_right, name = 'turn_right_in_situ'),
     path('car_run/stop_run/', car_run.stop_run, name = 'make_car_to_stop'),
     path('car_run/end_control/', car_run.all_stop, name = 'end_control'),
+    path('chat_bot/en/', chat_bot_en.chat, name = 'chat_bot_en'),
 ]
 
 try:
